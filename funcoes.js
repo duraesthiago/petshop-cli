@@ -1,8 +1,69 @@
 const cachorros = require('./database/cachorros.json');
+const fs = require('fs');
 
-function salvar(){}
+//Função Salvar
+const salvar = () => {
+    let file = './database/cachorros.json';
+    let json = JSON.stringify(cachorros,null,4);
+    fs.writeFileSync(file, json);
+}
 
-function buscar(id){}
+//Função Buscar
+const buscar = id => {
+    try {
+        const idFound = cachorros.find(function(cachorro){
+            if(cachorro.id === id){
+                return cachorro;
+            }
+        });
+
+        return idFound;
+        
+    } catch (error) {
+        console.error(`Não existe cachorro com o 'id' ${id}`);
+    }
+};    
+
+//Funcão Listar
+const listar = () => {
+    console.table(cachorros);
+};
+
+//Função Descrever
+const descrever = id => {
+    let cachorro = buscar(id);
+    console.log(cachorro);
+};
+
+//Função Adcionar
+
+function Cachorro(id, nome, sexo, castrado, dataDeNascimento, peso){
+    this.id = id;
+    this.nome = nome;
+    this.sexo = sexo;
+    this.castrado = castrado;
+    this.dataDeNascimento = dataDeNascimento;
+    this.peso = peso;
+}
+
+const adicionar = (cachorro = new Cachorro) => {
+    let verificaCachorro = buscar(cachorro.id);
+    if (verificaCachorro == undefined){
+        cachorro.vacinas = [];
+        cachorro.servicos = [];
+        cachorros.push(cachorro); //Adiciona novo cachorro
+        //Salva novamente
+        salvar();
+    } else {
+        console.error(`O id (${cachorro.id}) inserido já existe!`);
+    }
+
+};
+
+//listar();
+//descrever(4);
+adicionar({nome:"Rex",id: 11 , sexo:"M", castrado: true, dataDeNascimento: "2000-02-12", peso:25});
+//console.log(buscar(1000));
 
 module.exports = {
     
