@@ -10,17 +10,20 @@ const salvar = () => {
 
 //Função Buscar
 const buscar = id => {
+    //let error = new Error('Deu erro seu besta!');
     try {
         const idFound = cachorros.find(function(cachorro){
             if(cachorro.id === id){
                 return cachorro;
+            } else{
+                throw error = new Error('Deu erro seu besta!');
             }
         });
 
         return idFound;
         
     } catch (error) {
-        console.error(`Não existe cachorro com o 'id' ${id}`);
+        return error;
     }
 };    
 
@@ -48,10 +51,10 @@ function Cachorro(id, nome, sexo, castrado, dataDeNascimento, peso){
 
 const adicionar = (cachorro = new Cachorro) => {
     let verificaCachorro = buscar(cachorro.id);
-    if (verificaCachorro == undefined){
+    if (verificaCachorro == error){
         cachorro.vacinas = [];
         cachorro.servicos = [];
-        cachorros.push(cachorro); //Adiciona novo cachorro
+        cachorros.push(cachorro); //Adiciona novo cachorro 
         //Salva novamente
         salvar();
     } else {
@@ -60,10 +63,16 @@ const adicionar = (cachorro = new Cachorro) => {
 
 };
 
+
+
+
+
+/////////TESTES//////////////////
 //listar();
-//descrever(4);
+//descrever(1000);
 adicionar({nome:"Rex",id: 11 , sexo:"M", castrado: true, dataDeNascimento: "2000-02-12", peso:25});
-//console.log(buscar(1000));
+//console.log(buscar(1000))
+
 
 module.exports = {
     
