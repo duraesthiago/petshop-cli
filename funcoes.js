@@ -24,7 +24,6 @@ const buscar = id => {
     }
 
     return idFound;
-    
 }; 
 
 //Funcão Listar
@@ -63,13 +62,36 @@ const adicionar = (cachorro = new Cachorro) => {
 
 };
 
+//Função Vacinar 
+/* ☐ Crie uma função chamada vacinar.
+  . Essa função deve adicionar um objeto literal com
+  as informações de uma vacina (nome e data da aplicação) no array de vacinas de um cachorro.
+. Ela deve receber três parâmetros *nesta ordem*
+    + id  (Id cachorro do cachorro a ser vacinado)
+    + vacina (Nome da vacina)
+    + data (uma string em formato AAAA-MM-DD)
+
+. Essa função não retorna nada.
+. Essa função deve imprimir uma mensagem "Cachorro inexistente"
+  não exista um cachorro com o id passado.
+*/
+
+const vacinar = (id, nomeDaVacina, dataDaVacina) => {
+    let cachorroVacinado = buscar(id);
+    if(cachorroVacinado == error){
+        console.log("Cachorro inexistente");
+    } else{
+        cachorroVacinado.vacinas = [{nome: nomeDaVacina, data: dataDaVacina}];
+    }
+
+    salvar();
+}
 
 /////////TESTES//////////////////
 //listar();
 //descrever(1000);
 //adicionar({nome:"Rex",id: 11 , sexo:"M", castrado: true, dataDeNascimento: "2000-02-12", peso:25});
-console.log(buscar(1));
-//vacinar(11, "Sinopharm", "2022-07-01");
+vacinar(110, "Sinopharm", "2022-07-01");
 //console.log(buscar(1000))
 
 
