@@ -83,6 +83,18 @@ const atribuirServico = (id, tipoServico, dataDoServico) => {
     }
 }
 
+//Função Remover
+const remover = id => {
+    let removerCachorro = buscar(id);
+    if (removerCachorro.id > 0){
+        let index = cachorros.map(function(cachorro){return cachorro.id;}).indexOf(id);
+        cachorros.splice(index,1);
+        salvar();
+    } else {
+        console.log('Cachorro inexistente');
+    }
+}
+
 
 /////////TESTES//////////////////
 //listar();
@@ -91,6 +103,7 @@ const atribuirServico = (id, tipoServico, dataDoServico) => {
 //vacinar(7, "Sinopharm__", "2022-07-01");
 //atribuirServico(7, "Vacinação - 2 dose", "2022-07-01");
 //console.log(buscar(10000))
+remover(7);
 
 module.exports = {
     
