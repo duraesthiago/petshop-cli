@@ -10,22 +10,22 @@ const salvar = () => {
 
 //Função Buscar
 const buscar = id => {
-    //let error = new Error('Deu erro seu besta!');
-    try {
-        const idFound = cachorros.find(function(cachorro){
-            if(cachorro.id === id){
+    const idFound = cachorros.find(function(cachorro){
+            if(cachorro.id == id){
                 return cachorro;
-            } else{
-                throw error = new Error('Deu erro seu besta!');
             }
         });
 
-        return idFound;
+    try {
+        if(idFound==undefined) throw error = new Error('Deu erro seu besta!')
         
     } catch (error) {
         return error;
     }
-};    
+
+    return idFound;
+    
+}; 
 
 //Funcão Listar
 const listar = () => {
@@ -64,13 +64,12 @@ const adicionar = (cachorro = new Cachorro) => {
 };
 
 
-
-
-
 /////////TESTES//////////////////
 //listar();
 //descrever(1000);
-adicionar({nome:"Rex",id: 11 , sexo:"M", castrado: true, dataDeNascimento: "2000-02-12", peso:25});
+//adicionar({nome:"Rex",id: 11 , sexo:"M", castrado: true, dataDeNascimento: "2000-02-12", peso:25});
+console.log(buscar(1));
+//vacinar(11, "Sinopharm", "2022-07-01");
 //console.log(buscar(1000))
 
 
