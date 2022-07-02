@@ -17,13 +17,12 @@ const buscar = id => {
         });
 
     try {
-        if(idFound==undefined) throw error = new Error('Deu erro seu besta!')
+        if(idFound!=undefined) throw idFound;
+        if(idFound==undefined) throw error = new Error('Deu erro seu besta!');
         
     } catch (error) {
         return error;
     }
-
-    return idFound;
 }; 
 
 //Funcão Listar
@@ -50,50 +49,48 @@ function Cachorro(id, nome, sexo, castrado, dataDeNascimento, peso){
 
 const adicionar = (cachorro = new Cachorro) => {
     let verificaCachorro = buscar(cachorro.id);
-    if (verificaCachorro == error){
+    if (verificaCachorro.id > 0){
+        console.log(`O id (${cachorro.id}) inserido já existe!`);
+    } else {
         cachorro.vacinas = [];
         cachorro.servicos = [];
         cachorros.push(cachorro); //Adiciona novo cachorro 
         //Salva novamente
         salvar();
-    } else {
-        console.error(`O id (${cachorro.id}) inserido já existe!`);
     }
 
 };
 
-//Função Vacinar 
-/* ☐ Crie uma função chamada vacinar.
-  . Essa função deve adicionar um objeto literal com
-  as informações de uma vacina (nome e data da aplicação) no array de vacinas de um cachorro.
-. Ela deve receber três parâmetros *nesta ordem*
-    + id  (Id cachorro do cachorro a ser vacinado)
-    + vacina (Nome da vacina)
-    + data (uma string em formato AAAA-MM-DD)
-
-. Essa função não retorna nada.
-. Essa função deve imprimir uma mensagem "Cachorro inexistente"
-  não exista um cachorro com o id passado.
-*/
-
+//Função Vacinar
 const vacinar = (id, nomeDaVacina, dataDaVacina) => {
     let cachorroVacinado = buscar(id);
-    if(cachorroVacinado == error){
-        console.log("Cachorro inexistente");
+    if(cachorroVacinado.id > 0){
+        cachorroVacinado.vacinas.push({nome: nomeDaVacina, data: dataDaVacina});
+        salvar();
     } else{
-        cachorroVacinado.vacinas = [{nome: nomeDaVacina, data: dataDaVacina}];
+        console.log("Cachorro inexistente");
     }
-
-    salvar();
 }
+
+//Função Atribuir Serviço
+const atribuirServico = (id, tipoServico, dataDoServico) => {
+    let cachorroServico = buscar(id);
+    if (cachorroServico.id > 0){
+        cachorroServico.servicos.push({nome: tipoServico, data: dataDoServico});
+        salvar();
+    } else {
+        console.log('Cachorro inexistente');
+    }
+}
+
 
 /////////TESTES//////////////////
 //listar();
 //descrever(1000);
-//adicionar({nome:"Rex",id: 11 , sexo:"M", castrado: true, dataDeNascimento: "2000-02-12", peso:25});
-vacinar(110, "Sinopharm", "2022-07-01");
-//console.log(buscar(1000))
-
+//adicionar({nome:"Rex",id: 102 , sexo:"M", castrado: true, dataDeNascimento: "2000-02-12", peso:25});
+//vacinar(7, "Sinopharm__", "2022-07-01");
+//atribuirServico(7, "Vacinação - 2 dose", "2022-07-01");
+//console.log(buscar(10000))
 
 module.exports = {
     
