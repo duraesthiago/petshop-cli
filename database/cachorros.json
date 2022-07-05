@@ -100,15 +100,5 @@
         "peso": 5,
         "vacinas": [],
         "servicos": []
-    },
-    {
-        "id": 7,
-        "nome": "Cancelado",
-        "sexo": "m",
-        "castrado": true,
-        "dataDeNascimento": "2021-10-13",
-        "peso": 1,
-        "vacinas": [],
-        "servicos": []
     }
 ]

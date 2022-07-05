@@ -38,6 +38,7 @@ const descrever = id => {
 
 //Função Adcionar
 
+/*
 function Cachorro(id, nome, sexo, castrado, dataDeNascimento, peso){
     this.id = id;
     this.nome = nome;
@@ -46,9 +47,12 @@ function Cachorro(id, nome, sexo, castrado, dataDeNascimento, peso){
     this.dataDeNascimento = dataDeNascimento;
     this.peso = peso;
 }
+*/
 
-const adicionar = (cachorro = new Cachorro) => {
-    let verificaCachorro = buscar(cachorro.id);
+//const adicionar = (cachorro = new Cachorro) => {
+const adicionar = (id, nome, sexo, castrado, dataDeNascimento, peso) => {    
+    //let verificaCachorro = buscar(cachorro.id);
+    let verificaCachorro = buscar(id);
     if (verificaCachorro.id > 0){
         console.log(`O id (${cachorro.id}) inserido já existe!`);
     } else {
@@ -99,12 +103,16 @@ const remover = id => {
 /////////TESTES//////////////////
 //listar();
 //descrever(1000);
-//adicionar({nome:"Rex",id: 102 , sexo:"M", castrado: true, dataDeNascimento: "2000-02-12", peso:25});
+//adicionar({nome:"Rex",id: 7 , sexo:"M", castrado: true, dataDeNascimento: "2000-02-12", peso:25});
 //vacinar(7, "Sinopharm__", "2022-07-01");
 //atribuirServico(7, "Vacinação - 2 dose", "2022-07-01");
 //console.log(buscar(10000))
-remover(7);
+//remover(7);
 
 module.exports = {
-    
+    listar,
+    adicionar,
+    vacinar,
+    atribuirServico,
+    remover,
 }
