@@ -100,21 +100,5 @@
         "peso": 5,
         "vacinas": [],
         "servicos": []
-    },
-    {
-        "nome": "Thes",
-        "id": 7,
-        "vacinas": [],
-        "servicos": []
-    },
-    {
-        "nome": "rex",
-        "sexo": "m",
-        "castrado": true,
-        "dataDeNascimento": "2022-01-01",
-        "peso": 13,
-        "id": 8,
-        "vacinas": [],
-        "servicos": []
     }
 ]

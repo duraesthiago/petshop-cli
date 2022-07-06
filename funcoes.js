@@ -74,7 +74,7 @@ const atribuirServico = (id, tipoServico, dataDoServico) => {
 //Função Remover
 const remover = id => {
     let removerCachorro = buscar(id);
-    if (removerCachorro.id > 0){
+    if (removerCachorro.id){
         let index = cachorros.map(function(cachorro){return cachorro.id;}).indexOf(id);
         cachorros.splice(index,1);
         salvar();
