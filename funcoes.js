@@ -38,17 +38,15 @@ const descrever = id => {
 
 //Função Adcionar
 
-const adicionar = (novocachorro) => {    
-    let verificaCachorro = buscar(novocachorro.id);
-    if (verificaCachorro.id > 0){
-        console.log(`O id (${cachorro.id}) inserido já existe!`);
-    } else {
-        novocachorro.vacinas = [];
-        novocachorro.servicos = [];
-        cachorros.push(novocachorro); //Adiciona novo cachorro 
-        //Salva novamente
-        salvar();
-    }
+const adicionar = (novocachorro) => {
+    var listaId = cachorros.map(function(cachorro){return cachorro.id}).sort()
+    var novoId = listaId[listaId.length-1] + 1;
+    novocachorro.id = novoId; 
+    novocachorro.vacinas = [];
+    novocachorro.servicos = [];
+    cachorros.push(novocachorro); //Adiciona novo cachorro 
+    //Salva novamente
+    salvar();
 };
 
 //Função Vacinar
@@ -93,3 +91,4 @@ module.exports = {
     remover,
 }
 
+adicionar({nome:"Thes"})
