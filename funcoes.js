@@ -18,7 +18,7 @@ const buscar = id => {
 
     try {
         if(idFound!=undefined) throw idFound;
-        if(idFound==undefined) throw error = new Error('Deu erro seu besta!');
+        if(idFound==undefined) throw error = new Error('Erro no sistema!');
         
     } catch (error) {
         return error;
@@ -33,7 +33,11 @@ const listar = () => {
 //Função Descrever
 const descrever = id => {
     let cachorro = buscar(id);
-    console.log(cachorro);
+    if(cachorro){
+        return console.log(cachorro);
+    } else{
+        return console.log(`Não existe cachorro com o id ${id}`);
+    }
 };
 
 //Função Adcionar
@@ -89,4 +93,5 @@ module.exports = {
     vacinar,
     atribuirServico,
     remover,
+    descrever,
 }
