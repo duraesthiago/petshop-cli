@@ -100,5 +100,17 @@
         "peso": 5,
         "vacinas": [],
         "servicos": []
+    },
+    {
+        "nome": "Thes",
+        "id": 7,
+        "vacinas": [],
+        "servicos": []
+    },
+    {
+        "nome": "Thes",
+        "id": 8,
+        "vacinas": [],
+        "servicos": []
     }
 ]

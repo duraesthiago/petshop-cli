@@ -90,5 +90,3 @@ module.exports = {
     atribuirServico,
     remover,
 }
-
-adicionar({nome:"Thes"})
