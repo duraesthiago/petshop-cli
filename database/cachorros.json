@@ -98,7 +98,18 @@
         "castrado": false,
         "dataDeNascimento": "2021-01-01",
         "peso": 5,
-        "vacinas": [],
+        "vacinas": [
+            {
+                "nome": "V8/V10"
+            },
+            {
+                "nome": "Giárdia"
+            },
+            {
+                "nome": "V8/V10",
+                "data": "2022-6-7"
+            }
+        ],
         "servicos": []
     }
 ]

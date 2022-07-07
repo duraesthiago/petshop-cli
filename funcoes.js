@@ -55,6 +55,8 @@ const adicionar = (novocachorro) => {
 
 //Função Vacinar
 const vacinar = (id, nomeDaVacina, dataDaVacina) => {
+    now = new Date;
+    dataDaVacina = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`
     let cachorroVacinado = buscar(id);
     if(cachorroVacinado.id > 0){
         cachorroVacinado.vacinas.push({nome: nomeDaVacina, data: dataDaVacina});
@@ -66,6 +68,8 @@ const vacinar = (id, nomeDaVacina, dataDaVacina) => {
 
 //Função Atribuir Serviço
 const atribuirServico = (id, tipoServico, dataDoServico) => {
+    now = new Date;
+    dataDoServico = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`
     let cachorroServico = buscar(id);
     if (cachorroServico.id > 0){
         cachorroServico.servicos.push({nome: tipoServico, data: dataDoServico});
